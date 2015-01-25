@@ -7,8 +7,10 @@ set nocompatible
 filetype off
 
 " set the runtime path to include vundle and initialize
-set rtp+=~/.vim/bundle/vundle/Vundle.vim
-call vundle#rc()
+let win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+let vimDir = win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
+let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
+call vundle#rc(expand(vimDir . '/bundle'))
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim' 
@@ -20,9 +22,14 @@ Bundle 'Shougo/neocomplete.vim'
 Plugin 'vim-scripts/ScrollColors'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'vim-scripts/Colour-Sampler-Pack'
+Plugin 'scrooloose/syntastic'
+
 
 call vundle#end()
 filetype plugin indent on
+
+" Set terminal colors to 256
+set t_Co=256
 
 " Always show an incomplete command in the lower right corner
 set showcmd
@@ -114,7 +121,7 @@ set ruler
 nmap <silent> <leader>n :silent :nohlsearch<CR> 
 
 " Catch trailing whitespace
-set listchars=tab:>-,trail:·,eol:$
+set listchars=tab:>-,trail: ,eol:$
 nmap <silent> <leader>s :set nolist!<CR> 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
