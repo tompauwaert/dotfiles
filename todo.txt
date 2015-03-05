@@ -1,0 +1,6 @@
+VIM TO-DO:
+
+* Way to follow functions by just clicking.
+* Display a tree view of the directory in a window in VIM.
+* Keep a list of recently openened files to cycle through.
+* Install CSS-Less compiler for odoo themes
