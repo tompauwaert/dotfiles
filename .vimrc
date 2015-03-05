@@ -79,6 +79,7 @@ set pastetoggle=<F2>
 nnoremap ; :
 " Set the timeout len for commands to be shorter.
 set timeoutlen=750
+set nu
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remapping keys.
