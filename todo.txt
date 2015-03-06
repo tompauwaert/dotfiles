@@ -1,5 +1,15 @@
 VIM TO-DO:
 
+Already installed:
+What does xx do?
+* Sparkup: rstacruz/sparkup
+* nerdcommenter
+* neocomplete 
+* CSAprox
+* syntastic?
+
+Find out how to do the following: 
+
 * Way to follow functions by just clicking.
 * Display a tree view of the directory in a window in VIM.
 * Keep a list of recently openened files to cycle through.

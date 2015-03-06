@@ -4,7 +4,7 @@ alias editgit='vim ~/.gitconfig<CR>'
 alias editbash='vim ~/.bash_profile'
 alias editvmr='vim ~/.vimrc'
 alias resource='source ~/.bash_profile && echo "Done!"'
-alias edittodo='vim ~/todo.txt'
+alias edittodo='vim ~/.vim/todo.txt'
 alias vi=vim
 
 ## Git commands

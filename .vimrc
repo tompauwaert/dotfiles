@@ -79,7 +79,8 @@ set pastetoggle=<F2>
 nnoremap ; :
 " Set the timeout len for commands to be shorter.
 set timeoutlen=750
-set nu
+set number
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remapping keys.
@@ -106,7 +107,7 @@ set wildmode=list:longest,full
 
 " Keep context around cursor. Start scrolling when the cursor is 3 lines away
 " from the bottom/top of viewport.
-set scrolloff=4
+set scrolloff=6
 
 " Set the backup and temp files in a central folders.
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
