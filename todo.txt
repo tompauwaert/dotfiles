@@ -2,8 +2,8 @@ VIM TO-DO:
 
 Already installed:
 What does xx do?
-* Sparkup: rstacruz/sparkup
-* nerdcommenter
+* Sparkup: rstacruz/sparkup [check]
+* nerdcommenter [check]
 * neocomplete 
 * CSAprox
 * syntastic?

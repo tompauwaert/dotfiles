@@ -23,6 +23,10 @@ Plugin 'vim-scripts/ScrollColors'
 Plugin 'vim-scripts/CSApprox'
 Plugin 'vim-scripts/Colour-Sampler-Pack'
 Plugin 'scrooloose/syntastic'
+Plugin 'Lokaltog/powerline', {'rtp' : 'powerline/bindings/vim/'}
+Bundle 'tpope/vim-fugitive'  
+Bundle 'scrooloose/nerdtree'
+Bundle 'klen/python-mode'
 
 
 call vundle#end()
@@ -250,3 +254,17 @@ endif
 
 " Set color scheme
 colorscheme Mustang 
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Powerline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=DejaVu\ Sans\ Mono for\ Powerline\ 9
+set laststatus=2
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Nerdtree settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F2> :NERDTreeToggle<CR>
+
