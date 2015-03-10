@@ -26,7 +26,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/powerline', {'rtp' : 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'  
 Bundle 'scrooloose/nerdtree'
-Bundle 'klen/python-mode'
 
 
 call vundle#end()
