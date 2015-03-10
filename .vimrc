@@ -258,7 +258,7 @@ colorscheme Mustang
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=DejaVu\ Sans\ Mono for\ Powerline\ 9
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 set laststatus=2
 
 
