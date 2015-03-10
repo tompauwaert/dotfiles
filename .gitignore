@@ -15,6 +15,9 @@ _site
 *.zip
 *~
 
+# Object code
+*.pyc
+
 # OS or Editor folders
 ._*
 .cache
