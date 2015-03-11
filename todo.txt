@@ -14,3 +14,22 @@ Find out how to do the following:
 * Display a tree view of the directory in a window in VIM.
 * Keep a list of recently openened files to cycle through.
 * Install CSS-Less compiler for odoo themes
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" PYTHON RESOURCES TO READ:
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+source: http://docs.python-guide.org/en/latest/intro/learning/
+
+Python for You and Me: 
+    More traditional book. Excellent resource for learning all aspects of the language.
+
+Crash into Python: 
+    A.k.a. Python for Programmers with 3 hours.
+    This guide gives developers from other languages a crash course on python.
+
+Dive into ython 3: 
+    Good if you are moving from python 2 to python 3. Or if you already have some experience in another language.
+
+Expert Python Programming:
+    Deals with best practices in programming Python and is focused on the more advanced crowd. 
