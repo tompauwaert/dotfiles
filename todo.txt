@@ -33,3 +33,14 @@ Dive into ython 3:
 
 Expert Python Programming:
     Deals with best practices in programming Python and is focused on the more advanced crowd. 
+
+CODE: Read more about following functionality:
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+* Decorators: concrete examples of usage
+* Decorators: Examples of usage in odoo
+* Lambda expressions in python
+* Generator functions: YIELD
+* What are constructors in python? Vs. Initializers
+* Property decorators @property @name-of-property.setter
+* Mixins and multiple inheritance and what the hell their use is.
