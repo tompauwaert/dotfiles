@@ -37,6 +37,10 @@ DIR=~/work
 alias h='cd ~/'
 alias w='cd ${DIR}'
 alias bs='cd ${DIR}/bootstrap'
+alias dot='cd ~/dotfiles'
+
+## FORCE PROMPT COLORS
+force_color_prompt=yes
 
 ## Core GitHub apps
 ## alias gh='cd ~/github'

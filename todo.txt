@@ -44,3 +44,15 @@ CODE: Read more about following functionality:
 * What are constructors in python? Vs. Initializers
 * Property decorators @property @name-of-property.setter
 * Mixins and multiple inheritance and what the hell their use is.
+* Difference between old-style and new-style classes (e.g. consequences on multiple inheritance. https://www.python.org/doc/newstyle
+
+
+Read about complicated shit.
+""""""""""""""""""""""""""""
+* http://docs.python.org/2/reference/datamodel.html#emulating-callable-objects
+* http://docs.python.org/2/reference/datamodel.html#with-statement-context-managers
+* http://docs.python.org/2/reference/datamodel.html#object.__repr__
+* http://docs.python.org/2/reference/datamodel.html#implementing-descriptors
+* http://docs.python.org/2/reference/datamodel.html#basic-customization
+* http://docs.python.org/2/reference/datamodel.html#object.__lt__
+* http://docs.python.org/2/library/functions.html
