@@ -26,13 +26,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/powerline', {'rtp' : 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'  
 Bundle 'scrooloose/nerdtree'
+Bundle 'altercation/vim-colors-solarized'
 
 
 call vundle#end()
 filetype plugin indent on
 
-" Set terminal colors to 256
-set t_Co=256
 
 " Always show an incomplete command in the lower right corner
 set showcmd
@@ -251,8 +250,6 @@ endif
 "nnoremap <expr> i IndentWithI()
 
 
-" Set color scheme
-colorscheme Mustang 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -266,4 +263,22 @@ set laststatus=2
 " Nerdtree settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeDirArrows=0
+map <leader><F2> :NERDTreeCWD<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Change colorscheme depending on light.
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set color scheme
+"colorscheme Mustang 
+" let g:solarized_termcolors=256
+call togglebg#map("<F5>")
+"
+" Set terminal colors to 256
+" set t_Co=256
+" set term=xterm-256color
+set background=light
+colorscheme solarized
+
+" nnoremap <C-F10> :colorscheme Mustang<cr>
+" nnoremap <C-F9> :colorscheme solarized<cr>

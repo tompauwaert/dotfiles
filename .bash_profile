@@ -6,6 +6,10 @@ alias editvmr='vim ~/.vimrc'
 alias resource='source ~/.bash_profile && echo "Done!"'
 alias edittodo='vim ~/todo.txt'
 alias vi=vim
+alias tl1='tree -L 1 -C'
+alias tl2='tree -L 2 -C'
+alias tl3='tree -L 3 -C'
+
 
 ## Git commands
 alias log='git log'
@@ -41,14 +45,12 @@ alias dot='cd ~/dotfiles'
 
 ## FORCE PROMPT COLORS
 force_color_prompt=yes
-export TERM=xterm-color
+#export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LS_OPTS='--color=auto'
 alias ls='ls ${LS_OPTS}'
-export LESS="--RAW_CONTROL-CHARS"
-[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 export COLOR_NC='\e[0m' # No Color
 export COLOR_WHITE='\e[1;37m'
 export COLOR_BLACK='\e[0;30m'
@@ -66,6 +68,7 @@ export COLOR_BROWN='\e[0;33m'
 export COLOR_YELLOW='\e[1;33m'
 export COLOR_GRAY='\e[0;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
+export TERM=screen-256color-bce
 
 ## Core GitHub apps
 ## alias gh='cd ~/github'
