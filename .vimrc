@@ -32,55 +32,27 @@ Bundle 'altercation/vim-colors-solarized'
 call vundle#end()
 filetype plugin indent on
 
-
-" Always show an incomplete command in the lower right corner
-set showcmd
-
-" Set the match for a search pattern when halfway typing it.
-set incsearch
-
-" Make backspace behave like other editors
-set backspace=indent,eol,start
-" Automatically indent on new lines
-set autoindent
-" Copy the indentation of the previous line if auto indent doesn't know what to do
-set copyindent
-" Indenting a line with >> or << will indent or un-indent by 4
-set shiftwidth=4
-" Pressing tab in insert mode will use 4 spaces
-set softtabstop=4
-" Use spaces instead of tabs
-set expandtab
-" Highlight matching braces/tags
-set showmatch
-" Ignore case when searching
-set ignorecase
-" ...unless there's a capital letter in the query
-set smartcase
-" Indent to correct location with tab
-set smarttab
-" Highlight search matches
-set hlsearch
-" Search while you enter the query, not after
-set incsearch
-" More undos
-set undolevels=1000
-" Vim can set the title of the terminal window
-set title
-" Use a visual indicator instead of a beep
-set visualbell
-" Or just turn error bells off with this
-set noerrorbells
-" Enable syntax highlighting
-"syntax enable
-" Tell vim that your terminal supports 256 colors
-"set t_Co=256
-" Toggle paste mode with F2
-set pastetoggle=<F3>
-" Use ; instead of : to enter commands, saves a lot of keystrokes in the long run
-nnoremap ; :
-" Set the timeout len for commands to be shorter.
-set timeoutlen=750
+set showcmd " Always show an incomplete command in the lower right corner
+set incsearch " Set the match for a search pattern when halfway typing it.
+set backspace=indent,eol,start " Make backspace behave like other editors
+set autoindent " Automatically indent on new lines
+set copyindent " Copy the indentation of the previous line if auto indent doesn't know what to do
+set shiftwidth=4 " Indenting a line with >> or << will indent or un-indent by 4
+set softtabstop=4 " Pressing tab in insert mode will use 4 spaces
+set expandtab " Use spaces instead of tabs
+set showmatch " Highlight matching braces/tags
+set ignorecase " Ignore case when searching
+set smartcase " ...unless there's a capital letter in the query
+set smarttab " Indent to correct location with tab
+set hlsearch " Highlight search matches
+set incsearch " Search while you enter the query, not after
+set undolevels=1000 " More undos
+set title " Vim can set the title of the terminal window
+set visualbell " Use a visual indicator instead of a beep
+set noerrorbells " Or just turn error bells off with this
+set pastetoggle=<F3> " Toggle paste mode with F2
+nnoremap ; :  "Use ; instead of : to enter commands, saves a lot of keystrokes in the long run
+set timeoutlen=750 " Set the timeout len for commands to be shorter.
 set number
 
 
@@ -249,15 +221,11 @@ endif
 "endfunction
 "nnoremap <expr> i IndentWithI()
 
-
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 set laststatus=2
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nerdtree settings
@@ -269,28 +237,12 @@ map <leader><F2> :NERDTreeCWD<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Change colorscheme depending on light.
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"hi clear
-"if exists("syntax_on")
-    "syntax reset
-"endif
 
-" Set color scheme
-colorscheme Mustang 
-"call togglebg#map("<F5>")
-"
-" Set terminal colors to 256
-" set t_Co=256
-
-"set term=xterm-256color
-" let g:solarized_visibility="high"
-" let g:solarized_contrast="high"
-"
-
-"let g:solarized_italic=1
-"let g:solarized_termcolors=16
-"set t_Co=256
-"set background=light
-"colorscheme solarized
+let g:solarized_italic=1
+let g:solarized_termcolors=16
+set t_Co=256
+set background=light
+colorscheme solarized
 syntax enable
 
 " nnoremap <C-F10> :colorscheme Mustang<cr>
