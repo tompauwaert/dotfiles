@@ -51,7 +51,8 @@ set title " Vim can set the title of the terminal window
 set visualbell " Use a visual indicator instead of a beep
 set noerrorbells " Or just turn error bells off with this
 set pastetoggle=<F3> " Toggle paste mode with F2
-nnoremap ; :  "Use ; instead of : to enter commands, saves a lot of keystrokes in the long run
+"Use ; instead of : to enter commands, saves a lot of keystrokes in the long run
+nnoremap ; :
 set timeoutlen=750 " Set the timeout len for commands to be shorter.
 set number
 
