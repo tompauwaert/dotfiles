@@ -9,6 +9,10 @@ alias vi=vim
 alias tl1='tree -L 1 -C'
 alias tl2='tree -L 2 -C'
 alias tl3='tree -L 3 -C'
+alias dark='~/dotfiles/gnome-terminal-colors-solarized/set_dark.sh'
+alias light='~/dotfiles/gnome-terminal-colors-solarized/set_light.sh'
+alias dvim='~/dotfiles/dvim.sh'
+alias lvim='~/dotfiles/lvim.sh'
 
 
 ## Git commands
@@ -41,6 +45,8 @@ DIR=~/work
 alias h='cd ~/'
 alias w='cd ${DIR}'
 alias bs='cd ${DIR}/bootstrap'
+alias dev='cd ${DIR}/dev'
+alias odev='cd ${DIR}/dev/odoo-dev'
 alias dot='cd ~/dotfiles'
 
 ## FORCE PROMPT COLORS

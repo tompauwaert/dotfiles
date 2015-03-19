@@ -72,11 +72,11 @@ set visualbell
 " Or just turn error bells off with this
 set noerrorbells
 " Enable syntax highlighting
-syntax enable
+"syntax enable
 " Tell vim that your terminal supports 256 colors
-set t_Co=256
+"set t_Co=256
 " Toggle paste mode with F2
-set pastetoggle=<F2>
+set pastetoggle=<F3>
 " Use ; instead of : to enter commands, saves a lot of keystrokes in the long run
 nnoremap ; :
 " Set the timeout len for commands to be shorter.
@@ -122,7 +122,7 @@ nnoremap <C-y> 3<C-y>
 set ruler 
 
 " Temporarily turn of search term higlighting
-nmap <silent> <leader>n :silent :nohlsearch<CR> 
+nmap <silent> <leader>h :silent :nohlsearch<CR> 
 
 " Catch trailing whitespace
 set listchars=tab:>-,trail: ,eol:$
@@ -133,7 +133,7 @@ nmap <silent> <leader>s :set nolist!<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:ctrlp_max_files=0
-" let g:ctrlp_working_path_mode=0
+let g:ctrlp_working_path_mode=1
 
 " Ignore these directories:
 " set wildignore+=*/out/**
@@ -269,16 +269,29 @@ map <leader><F2> :NERDTreeCWD<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Change colorscheme depending on light.
 """"""""""""""""""""""""""""""""""""""""""""""""""
+"hi clear
+"if exists("syntax_on")
+    "syntax reset
+"endif
+
 " Set color scheme
-"colorscheme Mustang 
-" let g:solarized_termcolors=256
-call togglebg#map("<F5>")
+colorscheme Mustang 
+"call togglebg#map("<F5>")
 "
 " Set terminal colors to 256
 " set t_Co=256
-" set term=xterm-256color
-set background=light
-colorscheme solarized
+
+"set term=xterm-256color
+" let g:solarized_visibility="high"
+" let g:solarized_contrast="high"
+"
+
+"let g:solarized_italic=1
+"let g:solarized_termcolors=16
+"set t_Co=256
+"set background=light
+"colorscheme solarized
+syntax enable
 
 " nnoremap <C-F10> :colorscheme Mustang<cr>
 " nnoremap <C-F9> :colorscheme solarized<cr>
