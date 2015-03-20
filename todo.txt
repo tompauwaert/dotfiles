@@ -56,3 +56,10 @@ Read about complicated shit.
 * http://docs.python.org/2/reference/datamodel.html#basic-customization
 * http://docs.python.org/2/reference/datamodel.html#object.__lt__
 * http://docs.python.org/2/library/functions.html
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Coding Books: GENERAL
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+* Types and Programming Languages - Alexander Stepanov. - Critique on general coding practices.
+

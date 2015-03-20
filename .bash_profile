@@ -14,7 +14,6 @@ alias tl3='tree -L 3 -C'
 alias dvim='~/dotfiles/dvim.sh'
 alias lvim='~/dotfiles/lvim.sh'
 
-
 ## Git commands
 alias log='git log'
 alias diff='git diff'
