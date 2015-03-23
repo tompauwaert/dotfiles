@@ -98,6 +98,9 @@ nnoremap <C-y> 3<C-y>
 " Temporarily turn of search term higlighting
 nmap <silent> <leader>h :silent :nohlsearch<CR> 
 
+" Make saving easier
+nnoremap <leader>w :w<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snipmate Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,6 +133,7 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeDirArrows=0
+let NERDTreeIgnore = ['\.py[oc]$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Change colorscheme depending on light.
