@@ -17,6 +17,7 @@ _site
 
 # Object code
 *.pyc
+*.pyo
 
 # OS or Editor folders
 ._*
@@ -43,3 +44,4 @@ validation-status.json
 # Folders to ignore
 bower_components
 node_modules
+bundle
