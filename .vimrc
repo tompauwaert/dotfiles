@@ -101,6 +101,15 @@ nmap <silent> <leader>h :silent :nohlsearch<CR>
 " Make saving easier
 nnoremap <leader>w :w<cr>
 
+" Make control backspace work as expected
+imap <C-BS> <C-W>
+" Make C-W and C-U record changes so that they can be undone with 'U'
+inoremap <C-U> <C-g>U<C-U>
+inoremap <C-W> <C-g>U<C-W>
+
+" Map capslock to ctrl
+" Apparently this requires some out-of-vim-hacks to accomplish. 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snipmate Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -125,7 +134,6 @@ nnoremap <expr> i IndentWithI()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
 set laststatus=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
