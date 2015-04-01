@@ -95,9 +95,10 @@ _pushOrError(){
     line=$(git status | grep "nothing to commit")
     if [ -z "$line" ]; then
         error "Repository has uncommited changes!" 
-        return 1
+        return 0
     else
         git push
+        return 1
     fi
 }
 
@@ -108,8 +109,7 @@ pushAll(){
     # push from dotfiles
     echo "Saving dotfiles... "
     dot
-    if [[ "$(_pushOrError)" -eq 0 ]]; then
-        echo "error found"
+    if _pushOrError; then
         return
     fi
     
@@ -117,21 +117,21 @@ pushAll(){
     echo "Saving odoo-dev... "
     # push from odoo-dev
     odev
-    if [[ "$(_pushOrError)" -eq 0 ]]; then
+    if _pushOrError; then
         return
     fi
 
     echo "Saving hackerrank... "
     # push from hackerrank
     hr
-    if [[ "$(_pushOrError)" -eq 0 ]]; then
+    if _pushOrError; then
         return
     fi
 
     echo "Saving one-off-projects... "
     # push from one-off-projects
     oop
-    if [[ "$(_pushOrError)" -eq 0 ]]; then
+    if _pushOrError; then
         return
     fi
 
