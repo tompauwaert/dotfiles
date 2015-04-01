@@ -14,6 +14,31 @@ alias tl3='tree -L 3 -C'
 alias dvim='~/dotfiles/dvim.sh'
 alias lvim='~/dotfiles/lvim.sh'
 
+## HackerRank commands - making life easier
+DEFAULT_HACKER_LANGUAGE=python
+createHackFolder(){
+    # check if folder does not already exists
+    if [ ! -d "$1" ]; then
+        mkdir $1
+    fi
+    cd $1
+
+    # check if second folder is empty, and if not, whether it already exists.
+    if [[ -z "$2" ]]; then
+        if [ ! -d "$DEFAULT_HACKER_LANGUAGE" ]; then
+            mkdir $DEFAULT_HACKER_LANGUAGE
+        fi
+        cd $DEFAULT_HACKER_LANGUAGE
+    else
+        if [ ! -d "$2" ]; then
+            mkdir $2
+        fi
+        cd $2
+    fi
+}
+alias challenge=createHackFolder
+alias up2='cd ../..'
+
 ## Git commands
 alias log='git log'
 alias diff='git diff'
