@@ -47,6 +47,7 @@ alias bs='cd ${DIR}/bootstrap'
 alias dev='cd ${DIR}/dev'
 alias odev='cd ${DIR}/dev/odoo-dev'
 alias dot='cd ~/dotfiles'
+alias hr='cd ${DIR}/dev/hackerrank'
 
 ## FORCE PROMPT COLORS
 force_color_prompt=yes

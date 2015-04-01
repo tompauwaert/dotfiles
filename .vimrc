@@ -158,6 +158,7 @@ syntax enable
 " Changes to default solarized color scheme
 """"""""""""""""""""""""""""""""""""""""""""""""""
 highlight ErrorMsg guibg=White
+highlight MatchParen guibg=White guifg=Red gui=bold
 
 " nnoremap <C-F10> :colorscheme Mustang<cr>
 " nnoremap <C-F9> :colorscheme solarized<cr>
