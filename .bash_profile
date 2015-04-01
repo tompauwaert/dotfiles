@@ -1,12 +1,32 @@
 ## ERROR FUNCTIONS
 error(){
-    echo "$@" 1>&2
+    echo -e "$@" 1>&2
 }
 
 fatal_error(){
     error "$@"
     exit 1
 }
+
+
+## Defining some colors for output.
+black='\033[0;30m'
+blue='\033[0;34m'
+green='\033[0;32m'
+cyan='\033[0;36m'
+red='\033[0;31m'
+purple='\033[0;35m'
+orange='\033[0;33m'
+light_gray='\033[0;37m'
+dark_gray='\033[1;30m'
+light_blue='\033[1;34m'
+light_green='\033[1;32m'
+light_cyan='\033[1;36m'
+light_red='\033[1;31m'
+light_purple='\033[1;35m'
+yellow='\033[1;33m'
+white='\033[1;37m'
+NC='\033[0m' #no color
 
 ## Shortcuts
 alias ll='ls -al'
@@ -66,26 +86,26 @@ pullAll(){
     currentPath="$PWD"
 
     # pull from dotfiles
-    echo "Updating dotfiles... "
+    echo -e "${purple}Updating dotfiles... ${NC}"
     dot
     git pull
 
-    echo "Updating odoo-dev... "
+    echo -e "${purple}Updating odoo-dev... ${NC}"
     #pull from odoo-dev
     odev
     git pull
 
-    echo "Updating hackerrank... "
+    echo -e "${purple}Updating hackerrank... ${NC}"
     #pull from hackerrank
     hr
     git pull
 
-    echo "Updating one-off-projects... "
+    echo -e "${purple}Updating one-off-projects... ${NC}"
     #pull from one-off-projects
     oop
     git pull
 
-    echo "Updating completing." 
+    echo -e "${yellow}Updating completing.${NC}" 
     cd "$currentPath"
 }
 alias 'pull-all'=pullAll
@@ -94,7 +114,7 @@ _pushOrError(){
     repUpToDate=0
     line=$(git status | grep "nothing to commit")
     if [ -z "$line" ]; then
-        error "Repository has uncommited changes!" 
+        error "${red}Repository has uncommited changes!${NC}" 
         return 0
     else
         git push
@@ -107,35 +127,35 @@ pushAll(){
     currentPath="$PWD"
 
     # push from dotfiles
-    echo "Saving dotfiles... "
+    echo -e "${purple}Saving dotfiles... ${NC}"
     dot
     if _pushOrError; then
         return
     fi
     
 
-    echo "Saving odoo-dev... "
+    echo -e "${purple}Saving odoo-dev... ${NC}"
     # push from odoo-dev
     odev
     if _pushOrError; then
         return
     fi
 
-    echo "Saving hackerrank... "
+    echo -e "${purple}Saving hackerrank... ${NC}"
     # push from hackerrank
     hr
     if _pushOrError; then
         return
     fi
 
-    echo "Saving one-off-projects... "
+    echo -e "${purple}Saving one-off-projects... ${NC}"
     # push from one-off-projects
     oop
     if _pushOrError; then
         return
     fi
 
-    echo "Saving completed." 
+    echo -e "${light_green}Saving completed.${NC}" 
     cd "$currentPath"
 }
 alias 'push-all'=pushAll
