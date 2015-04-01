@@ -1,3 +1,13 @@
+## ERROR FUNCTIONS
+error(){
+    echo "$@" 1>&2
+}
+
+fatal_error(){
+    error "$@"
+    exit 1
+}
+
 ## Shortcuts
 alias ll='ls -al'
 alias editgit='vim ~/.gitconfig<CR>'
@@ -80,6 +90,18 @@ pullAll(){
 }
 alias 'pull-all'=pullAll
 
+_pushOrError(){
+    repUpToDate=0
+    line=$(git status | grep "nothing to commit")
+    if [ -z "$line" ]; then
+        error "Repository has uncommited changes!" 
+        return 1
+    else
+        git push
+        return 0
+    fi
+}
+
 pushAll(){
     # Get and remember current path.
     currentPath="$PWD"
@@ -87,22 +109,31 @@ pushAll(){
     # push from dotfiles
     echo "Saving dotfiles... "
     dot
-    git push
+    if [[ "$(_pushOrError)" -eq 0 ]]; then
+        echo "error found"
+        return
+    fi
 
     echo "Saving odoo-dev... "
     # push from odoo-dev
     odev
-    git push
+    if [[ "$(_pushOrError)" -eq 0 ]]; then
+        return
+    fi
 
     echo "Saving hackerrank... "
     # push from hackerrank
     hr
-    git push
+    if [[ "$(_pushOrError)" -eq 0 ]]; then
+        return
+    fi
 
     echo "Saving one-off-projects... "
     # push from one-off-projects
     oop
-    git push
+    if [[ "$(_pushOrError)" -eq 0 ]]; then
+        return
+    fi
 
     echo "Saving completed." 
     cd "$currentPath"
