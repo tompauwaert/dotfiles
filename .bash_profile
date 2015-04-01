@@ -98,7 +98,6 @@ _pushOrError(){
         return 1
     else
         git push
-        return 0
     fi
 }
 
@@ -113,6 +112,7 @@ pushAll(){
         echo "error found"
         return
     fi
+    
 
     echo "Saving odoo-dev... "
     # push from odoo-dev
