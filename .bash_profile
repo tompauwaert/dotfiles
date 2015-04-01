@@ -14,6 +14,17 @@ alias tl3='tree -L 3 -C'
 alias dvim='~/dotfiles/dvim.sh'
 alias lvim='~/dotfiles/lvim.sh'
 
+## Switch repos
+DIR=~/work
+alias h='cd ~/'
+alias w='cd ${DIR}'
+alias bs='cd ${DIR}/bootstrap'
+alias dev='cd ${DIR}/dev'
+alias odev='cd ${DIR}/dev/odoo-dev'
+alias dot='cd ~/dotfiles'
+alias hr='cd ${DIR}/dev/hackerrank'
+alias oop='cd ${DIR}/dev/one-off-projects' 
+
 ## HackerRank commands - making life easier
 DEFAULT_HACKER_LANGUAGE=python
 createHackFolder(){
@@ -39,6 +50,65 @@ createHackFolder(){
 alias challenge=createHackFolder
 alias up2='cd ../..'
 
+## Pull all repositories changes.
+pullAll(){
+    # Get and remember current path.
+    currentPath="$PWD"
+
+    # pull from dotfiles
+    echo "Updating dotfiles... "
+    dot
+    git pull
+
+    echo "Updating odoo-dev... "
+    #pull from odoo-dev
+    odev
+    git pull
+
+    echo "Updating hackerrank... "
+    #pull from hackerrank
+    hr
+    git pull
+
+    echo "Updating one-off-projects... "
+    #pull from one-off-projects
+    oop
+    git pull
+
+    echo "Updating completing." 
+    cd "$currentPath"
+}
+alias 'pull-all'=pullAll
+
+pushAll(){
+    # Get and remember current path.
+    currentPath="$PWD"
+
+    # push from dotfiles
+    echo "Saving dotfiles... "
+    dot
+    git push
+
+    echo "Saving odoo-dev... "
+    # push from odoo-dev
+    odev
+    git push
+
+    echo "Saving hackerrank... "
+    # push from hackerrank
+    hr
+    git push
+
+    echo "Saving one-off-projects... "
+    # push from one-off-projects
+    oop
+    git push
+
+    echo "Saving completed." 
+    cd "$currentPath"
+}
+alias 'push-all'=pushAll
+
 ## Git commands
 alias log='git log'
 alias diff='git diff'
@@ -63,16 +133,6 @@ alias ghp='git co gh-pages'
 ## SVN
 ## alias up='svn up'
 ## alias sst='svn st'
-
-## Switch repos
-DIR=~/work
-alias h='cd ~/'
-alias w='cd ${DIR}'
-alias bs='cd ${DIR}/bootstrap'
-alias dev='cd ${DIR}/dev'
-alias odev='cd ${DIR}/dev/odoo-dev'
-alias dot='cd ~/dotfiles'
-alias hr='cd ${DIR}/dev/hackerrank'
 
 ## FORCE PROMPT COLORS
 force_color_prompt=yes
