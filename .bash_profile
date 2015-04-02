@@ -86,26 +86,26 @@ pullAll(){
     currentPath="$PWD"
 
     # pull from dotfiles
-    echo -e "${purple}Updating dotfiles... ${NC}"
+    echo -e "${light_blue}Updating dotfiles... ${NC}"
     dot
     git pull
 
-    echo -e "${purple}Updating odoo-dev... ${NC}"
+    echo -e "${light_blue}Updating odoo-dev... ${NC}"
     #pull from odoo-dev
     odev
     git pull
 
-    echo -e "${purple}Updating hackerrank... ${NC}"
+    echo -e "${light_blue}Updating hackerrank... ${NC}"
     #pull from hackerrank
     hr
     git pull
 
-    echo -e "${purple}Updating one-off-projects... ${NC}"
+    echo -e "${light_blue}Updating one-off-projects... ${NC}"
     #pull from one-off-projects
     oop
     git pull
 
-    echo -e "${yellow}Updating completing.${NC}" 
+    echo -e "${light_purple}Updating completed.${NC}" 
     cd "$currentPath"
 }
 alias 'pull-all'=pullAll
@@ -114,7 +114,7 @@ _pushOrError(){
     repUpToDate=0
     line=$(git status | grep "nothing to commit")
     if [ -z "$line" ]; then
-        error "${red}Repository has uncommited changes!${NC}" 
+        error "${light_red}Repository has uncommited changes!${NC}" 
         return 0
     else
         git push
@@ -127,35 +127,35 @@ pushAll(){
     currentPath="$PWD"
 
     # push from dotfiles
-    echo -e "${purple}Saving dotfiles... ${NC}"
+    echo -e "${light_blue}Saving dotfiles... ${NC}"
     dot
     if _pushOrError; then
         return
     fi
     
 
-    echo -e "${purple}Saving odoo-dev... ${NC}"
+    echo -e "${light_blue}Saving odoo-dev... ${NC}"
     # push from odoo-dev
     odev
     if _pushOrError; then
         return
     fi
 
-    echo -e "${purple}Saving hackerrank... ${NC}"
+    echo -e "${light_blue}Saving hackerrank... ${NC}"
     # push from hackerrank
     hr
     if _pushOrError; then
         return
     fi
 
-    echo -e "${purple}Saving one-off-projects... ${NC}"
+    echo -e "${light_blue}Saving one-off-projects... ${NC}"
     # push from one-off-projects
     oop
     if _pushOrError; then
         return
     fi
 
-    echo -e "${light_green}Saving completed.${NC}" 
+    echo -e "${light_purple}Saving completed.${NC}" 
     cd "$currentPath"
 }
 alias 'push-all'=pushAll
