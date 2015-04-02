@@ -212,23 +212,8 @@ export COLOR_GRAY='\e[0;30m'
 export COLOR_LIGHT_GRAY='\e[0;37m'
 export TERM=screen-256color-bce
 
-## Core GitHub apps
-## alias gh='cd ~/github'
-## alias gg='cd ~/github/github'
-## alias ggg='gg && script/server'
-## alias giants='cd ~/github/giants'
-## alias hire='cd ~/github/hire'
-## alias summit='cd ~/github/summit'
-## alias primer='cd ~/github/primer'
-
 ## Server guick starts
 ## alias ss='script/server'
 ## alias js='jekyll serve --watch'
 ## alias ps='python -m SimpleHTTPServer 4000'
 ## alias gtest='testrb test/integration/bundle_test.rb'
-
-## Mobile iOS testing
-## alias ios='open /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app'
-
-# Added by the Heroku Toolbelt
-## export PATH="/usr/local/heroku/bin:$PATH"
