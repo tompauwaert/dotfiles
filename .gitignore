@@ -45,3 +45,9 @@ validation-status.json
 bower_components
 node_modules
 bundle
+
+# Odoo files to ignore:
+.mailmap
+addons/web/.bowerrc
+addons/web/static/lib/py.js/.hg_archival.txt
+doc/_static/.placeholder
