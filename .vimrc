@@ -110,6 +110,8 @@ inoremap <C-W> <C-g>U<C-W>
 " Map capslock to ctrl
 " Apparently this requires some out-of-vim-hacks to accomplish. 
 
+map <C-S-C> :%y+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snipmate Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -58,6 +58,22 @@ alias oop='cd ${DIR}/dev/one-off-projects'
 ## HackerRank commands - making life easier
 DEFAULT_HACKER_LANGUAGE=python
 createHackFolder(){
+
+    # If there's no arguments or the argument is --help or -h
+    if [ $# -eq 0 ]; then
+        echo "Usage of this command"
+        echo "    challenge challenge_name solution_language"
+        echo "> The language argument is optional. The language defaults to python"
+        return 0
+    fi
+
+    if [ $1 == "--help" ] || [ $1 == "-h" ]; then
+        echo "Usage of this command"
+        echo "    challenge challenge_name solution_language"
+        echo "> The language argument is optional. The language defaults to python"
+        return 0
+    fi;
+
     # check if folder does not already exists
     if [ ! -d "$1" ]; then
         mkdir $1
