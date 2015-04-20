@@ -164,3 +164,17 @@ nnoremap <C-F9> :colorscheme solarized<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""
 highlight ErrorMsg guibg=White
 highlight MatchParen guibg=White guifg=Red gui=bold
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Project specific VIM settings
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"function! ConditionalLoad()
+    "let cwd = getcwd()
+    "if getcwd() =~ $HOME . "/src/mobile"
+        "so $HOME/.vim.mobile
+    "endif
+"endfunction
+"autocmd VimEnter * call ConditionalLoad()
+
+
