@@ -1,1 +1,1 @@
-../dummy_environment/local.vim
+/home/tom/dotfiles/vimenv/dummy_environment/local.vim

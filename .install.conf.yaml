@@ -2,8 +2,8 @@
 
 - link:
     ~/.vimrc: vimenv/general/local.vim
-    ~/.gitignore: vimenv/general/.gitignore
-    ~/.gitconfig: vimenv/general/.gitconfig
+    ~/.gitignore: .gitignore
+    ~/.gitconfig: .gitconfig
     ~/.bash_profile: vimenv/general/local.bash
     ~/.vim: vimenv/general/plugin/
 
@@ -16,6 +16,6 @@
     - [mkdir -p vimenv/dummy_environment, Create dummy_environment dir]
     - [touch vimenv/dummy_environment/local.vim, Create dummy local.vim]
     - [touch vimenv/dummy_environment/local.bash, Create dummy local.bash]
-    - [find vimenv/active_environment ! -type l -delete, Reset to general vim environment]
+    - [find vimenv/active_environment/* ! -type l -delete, Reset to general vim environment]
 
 

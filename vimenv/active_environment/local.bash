@@ -1,1 +1,1 @@
-../dummy_environment/local.bash
+/home/tom/dotfiles/vimenv/dummy_environment/local.bash
