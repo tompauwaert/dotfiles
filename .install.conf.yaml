@@ -7,8 +7,15 @@
     ~/.bash_profile: vimenv/general/local.bash
     ~/.vim: vimenv/general/plugin/
 
+
 - shell:
-    - [sudo apt-get install tree, Installing tree]
     - [mkdir -p ~/work/dev, Create work/dev dir]
+    - [mkdir -p vimenv, Create environment dir]
+    - [mkdir -p vimenv/general, Create general env dir]
+    - [mkdir -p vimenv/active_environment, Create active_environment dir]
+    - [mkdir -p vimenv/dummy_environment, Create dummy_environment dir]
+    - [touch vimenv/dummy_environment/local.vim, Create dummy local.vim]
+    - [touch vimenv/dummy_environment/local.bash, Create dummy local.bash]
+    - [find vimenv/active_environment ! -type l -delete, Reset to general vim environment]
 
 
