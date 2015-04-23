@@ -178,4 +178,7 @@ highlight MatchParen guibg=White guifg=Red gui=bold
 "autocmd VimEnter * call ConditionalLoad()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" vimenv
+""""""""""""""""""""""""""""""""""""""""""""""""""
+source ~/dotfiles/vimenv/active_environment/local.vim
 
