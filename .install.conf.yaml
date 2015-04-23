@@ -8,7 +8,7 @@
     ~/.vim: .vim/
 
 - shell:
-    - [sudo apt-get install git, Installing git]
     - [sudo apt-get install tree, Installing tree]
     - [mkdir -p ~/work/dev, Create work/dev dir]
+
 
