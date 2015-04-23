@@ -7,4 +7,5 @@ rm -rf "${DIR}/active_environment"
 mkdir "${DIR}/active_environment"
 ln -s "${DIR}/dummy_environment/local.vim" "${DIR}/active_environment/local.vim"
 ln -s "${DIR}/dummy_environment/local.bash" "${DIR}/active_environment/local.bash"
+rm ~/.vim
 ln -s "${DIR}/general/plugin/" ~/.vim

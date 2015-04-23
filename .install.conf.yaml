@@ -16,6 +16,6 @@
     - [mkdir -p vimenv/dummy_environment, Create dummy_environment dir]
     - [touch vimenv/dummy_environment/local.vim, Create dummy local.vim]
     - [touch vimenv/dummy_environment/local.bash, Create dummy local.bash]
-    - [find vimenv/active_environment/* ! -type l -delete, Reset to general vim environment]
+    - [./vimenv/reset.sh, Reset to general vim environment]
 
 
