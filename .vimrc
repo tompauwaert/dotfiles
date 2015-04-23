@@ -144,6 +144,7 @@ set laststatus=2
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeDirArrows=0
 let NERDTreeIgnore = ['\.py[oc]$']
+let NERDTreeShowHidden=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Change colorscheme depending on light.
