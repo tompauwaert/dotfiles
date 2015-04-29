@@ -9,8 +9,13 @@
 - shell:
     - [mkdir -p ~/work/dev, Create work/dev dir]
     - [mkdir -p vimenv/active_environment/plugin, Create active_environment dir]
-    - [ln -s 'vimenv/active_environment/plugin' ~/.vim, Creating link to active plugin dir]
     - [vimenv -e, Activating general environment]
+
+- link: 
+    ~/.vim : vimenv/active_environment/plugin/
+
+- shell:
+    - [vim +PluginInstall +qall, Installing general vim plugins]
 
 
 
