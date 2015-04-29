@@ -5,12 +5,11 @@
     ~/.gitignore: .gitignore
     ~/.gitconfig: .gitconfig
     ~/.bash_profile: vimenv/general/local.bash
-    ~/.vim: vimenv/active_environment/plugin/
-
 
 - shell:
     - [mkdir -p ~/work/dev, Create work/dev dir]
-    - [mkdir -p vimenv/active_environment, Create active_environment dir]
+    - [mkdir -p vimenv/active_environment/plugin, Create active_environment dir]
+    - [ln -s 'vimenv/active_environment/plugin' ~/.vim, Creating link to active plugin dir]
     - [vimenv -e, Activating general environment]
 
 

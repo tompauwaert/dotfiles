@@ -75,7 +75,7 @@ LIGHT_GREEN='\033[0;32m'
 NC='\033[0m'
 
 ACTIVE="active_environment"
-GENERAL="general_test"
+GENERAL="general"
 PLUGIN="plugin"
 BUNDLE="bundle"
 CURRENT="current.env"
