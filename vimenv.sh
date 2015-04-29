@@ -68,6 +68,18 @@
 #
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+VIMENV_DIR="vimenv"
+VIMENV="${DIR}/${VIMENV_DIR}"
+
+LIGHT_GREEN='\033[0;32m'
+NC='\033[0m'
+
+ACTIVE="active_environment"
+GENERAL="general_test"
+PLUGIN="plugin"
+BUNDLE="bundle"
+CURRENT="current.env"
+NUM_ARG="$#"
 
 while [[ $# > 0 ]]
 do
@@ -105,15 +117,87 @@ done
 if [ $RESET ] || [ "$ENVIRONMENT" = "-r" ]; then
     if [ $ENV_SET ]; then
         #error
-        echo "ERROR=cannot reset and specify an environment at the same time"
+        echo "ERROR: Cannot reset and specify an environment at the same time"
         exit 1
     else 
-        ENVIRONMENT="general"
+        ENVIRONMENT="${GENERAL}"
     fi
 fi
 
-if [ -z $ENVIRONMENT ]; then
-    ENVIRONMENT="general"
+if [ $NUM_ARG -eq 0 ]; then
+    echo "Currently active environment: "
+    cat "${VIMENV}/${ACTIVE}/${CURRENT}"
+    exit 0
+else 
+    if [ -z $ENVIRONMENT ]; then
+        ENVIRONMENT=${GENERAL}
+    fi
 fi
 
-echo "Loading environment: \"$ENVIRONMENT\""
+function load_general(){
+    # the shopt command makes sure that if the folder is empty the
+    # for is not executed. Otherwise, even if the folder is empty 
+    # the for loop would be executed once with the value *
+    echo "Loading environment: general"
+    shopt -s nullglob
+    for plugin in "${VIMENV}/${GENERAL}/${PLUGIN}/${BUNDLE}"/*
+    do
+        plugin_name="$(basename $plugin)"
+        if [ ! -f "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}/$plugin_name" ]; 
+        then
+            ln -s "${plugin}" \
+                "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}/$plugin_name"
+        fi
+    done
+    shopt -u nullglob
+}
+
+function load_environment(){
+    clean_active
+    echo "Loading environment: $ENVIRONMENT"
+    echo "${ENVIRONMENT}" >> "${VIMENV}/${ACTIVE}/${CURRENT}"
+    ln -s "${VIMENV}/${ENVIRONMENT}/local.vim" "${VIMENV}/${ACTIVE}/local.vim"
+    ln -s "${VIMENV}/${ENVIRONMENT}/local.bash" "${VIMENV}/${ACTIVE}/local.bash"
+    if [ -d "${VIMENV}/${ENVIRONMENT}/${PLUGIN}/${BUNDLE}" ]; then
+        ln -s "${VIMENV}/${ENVIRONMENT}/${PLUGIN}" \
+            "${VIMENV}/${ACTIVE}/${PLUGIN}"
+    else
+        mkdir -p "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}" 
+    fi
+    load_general
+    echo -e "${LIGHT_GREEN}Loading environments [completed]${NC}"
+}
+
+function clean_active(){
+    if [ -d "${VIMENV}/${ACTIVE}" ]; then
+        rm "${VIMENV}/${ACTIVE}/"local.*
+
+        if [ -d "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}" ]; then
+            find "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}" \
+                -maxdepth 1 -type l -exec rm {} \;
+        fi
+
+        rm "${VIMENV}/${ACTIVE}/${PLUGIN}" 2> /dev/null
+        # It might also be an actual directory instead of a symlink
+        rm -r "${VIMENV}/${ACTIVE}/${PLUGIN}" 2> /dev/null
+        rm "${VIMENV}/${ACTIVE}/${CURRENT}"
+    fi
+}
+
+function only_general(){
+    echo "${GENERAL}" >> "${VIMENV}/${ACTIVE}/${CURRENT}"
+    ln -s "${VIMENV}/${GENERAL}/${PLUGIN}" "${VIMENV}/${ACTIVE}/${PLUGIN}"
+}
+
+if [ "${ENVIRONMENT}" == "${GENERAL}" ]; then
+    clean_active
+    only_general
+else 
+    if [ ! -d "${VIMENV}/${ENVIRONMENT}" ]; then
+        echo "ERROR: Environment \"${ENVIRONMENT}\" does not exist!"
+    else
+        load_environment
+    fi
+fi
+
+
