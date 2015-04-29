@@ -170,7 +170,7 @@ function load_environment(){
 
 function clean_active(){
     if [ -d "${VIMENV}/${ACTIVE}" ]; then
-        rm "${VIMENV}/${ACTIVE}/"local.*
+        rm "${VIMENV}/${ACTIVE}/"local.* 2> /dev/null
 
         if [ -d "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}" ]; then
             find "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}" \
@@ -180,7 +180,7 @@ function clean_active(){
         rm "${VIMENV}/${ACTIVE}/${PLUGIN}" 2> /dev/null
         # It might also be an actual directory instead of a symlink
         rm -r "${VIMENV}/${ACTIVE}/${PLUGIN}" 2> /dev/null
-        rm "${VIMENV}/${ACTIVE}/${CURRENT}"
+        rm "${VIMENV}/${ACTIVE}/${CURRENT}" 2> /dev/null
     fi
 }
 
