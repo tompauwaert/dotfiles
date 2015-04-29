@@ -165,6 +165,11 @@ nnoremap <C-F9> :colorscheme solarized<cr>
 highlight ErrorMsg guibg=White
 highlight MatchParen guibg=White guifg=Red gui=bold
 
+" Highlight lines longer than 80 characters in width
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%81v.\+/
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Project specific VIM settings
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,5 +185,8 @@ highlight MatchParen guibg=White guifg=Red gui=bold
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " vimenv
 """"""""""""""""""""""""""""""""""""""""""""""""""
-source ~/dotfiles/vimenv/active_environment/local.vim
+let $LOCALFILE=expand("~/dotfiles/vimenv/active_environment/local.vim")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
 

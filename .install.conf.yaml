@@ -11,11 +11,8 @@
 - shell:
     - [mkdir -p ~/work/dev, Create work/dev dir]
     - [mkdir -p vimenv, Create environment dir]
-    - [mkdir -p vimenv/general, Create general env dir]
+    - [mkdir -p vimenv/general/plugin, Create general env dir]
     - [mkdir -p vimenv/active_environment, Create active_environment dir]
-    - [mkdir -p vimenv/dummy_environment, Create dummy_environment dir]
-    - [touch vimenv/dummy_environment/local.vim, Create dummy local.vim]
-    - [touch vimenv/dummy_environment/local.bash, Create dummy local.bash]
-    - [./vimenv/reset.sh, Reset to general vim environment]
+    - [./vimenv/reset.sh, Reset/set to general vim environment]
 
 
