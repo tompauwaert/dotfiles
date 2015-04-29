@@ -44,7 +44,8 @@ validation-status.json
 # VIMENV
 vimenv/active_environment/
 vimenv/general/plugin/*
-vimenv/general/plugin/*/
+!vimenv/general/plugin/bundle
+vimenv/general/plugin/bundle/*
 !vimenv/general/plugin/bundle/Vundle.vim
 
 
