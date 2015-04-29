@@ -47,6 +47,8 @@ vimenv/general/plugin/*
 !vimenv/general/plugin/bundle
 vimenv/general/plugin/bundle/*
 !vimenv/general/plugin/bundle/Vundle.vim
+vimenv/general_test
+vimenv/test_dir
 
 
 # Folders to ignore
