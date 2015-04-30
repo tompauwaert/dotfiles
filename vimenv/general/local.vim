@@ -96,7 +96,7 @@ nnoremap <C-y> 3<C-y>
 " set ruler 
 
 " Temporarily turn of search term higlighting
-nmap <silent> <leader>h :silent :nohlsearch<CR> 
+nmap <silent> <F4> :silent :nohlsearch<CR> 
 
 " Make saving easier
 nnoremap <leader>w :w<cr>
@@ -143,6 +143,7 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeDirArrows=0
+let NERDTreeShowHiddenFiles=1
 let NERDTreeIgnore = ['\.py[oc]$']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
