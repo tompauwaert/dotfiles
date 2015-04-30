@@ -16,9 +16,10 @@
 # 
 # VimEnv supports a few commands:
 # - Just using 'vimenv' will tell you the currently active environment
-# - 'vimenv $environment_name' will switch to the named environment, if it 
+# - 'vimenv -e $environment_name' will switch to the named environment, if it 
 # exists. Ifthe specified environment does not exist, this script will change 
 # nothing.
+# - 'vimenv -r will reset the vim environment to the 'general' environment.
 # 
 # -----------------------------------------------------------------
 # | How the script works:
@@ -26,7 +27,7 @@
 # 
 # This script relies heavily on symbolic linking. In general the '~/.vimrc' file
 # will be linked to the 'local.vim' file in the 'general' environment. And the 
-# plugin folder '~/.vim/' will be linked to the pluging folder in the general 
+# plugin folder '~/.vim/' will be linked to the pluging folder in the active 
 # environment.
 # 
 # Your 'local.vim' file in the 'general' environment should contain all your 
@@ -179,6 +180,11 @@ function clean_active(){
 
         rm "${VIMENV}/${ACTIVE}/${PLUGIN}" 2> /dev/null
         # It might also be an actual directory instead of a symlink
+        # because if the environment (not general environment) does 
+        # not have a plugin folder, we can't symlink it and then symlink
+        # the general folders plugins into the active_environment plugins
+        # folder. In that case we make an actual plugin directory in 
+        # active_environment ourselves.
         rm -r "${VIMENV}/${ACTIVE}/${PLUGIN}" 2> /dev/null
         rm "${VIMENV}/${ACTIVE}/${CURRENT}" 2> /dev/null
     fi
