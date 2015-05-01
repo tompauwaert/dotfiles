@@ -20,6 +20,9 @@
 # exists. Ifthe specified environment does not exist, this script will change 
 # nothing.
 # - 'vimenv -r will reset the vim environment to the 'general' environment.
+# - 'vimenv -n $environment_name' will create a new environment with the
+# specified name. This will only create a scaffolding for a new environment.
+# The actual details will then have to be filled in by the user.
 # 
 # -----------------------------------------------------------------
 # | How the script works:
@@ -74,66 +77,6 @@ VIMENV="${DIR}/${VIMENV_DIR}"
 
 LIGHT_GREEN='\033[0;32m'
 NC='\033[0m'
-
-ACTIVE="active_environment"
-GENERAL="general"
-PLUGIN="plugin"
-BUNDLE="bundle"
-CURRENT="current.env"
-NUM_ARG="$#"
-
-while [[ $# > 0 ]]
-do
-    key="$1"
-
-    case $key in
-        -r|--reset)
-            RESET=true
-            ;;
-        --r|-reset)
-            echo "Valid reset options are: -r | --reset"
-            exit 1
-            ;;
-        -e|--env|--environment)
-            ENV_SET=true
-            ENVIRONMENT="$2"
-            shift
-            ;;
-        --e|-env|-environment)
-            echo "Valid environment options are -e | --env | --environment"
-            echo "followed by the target environment."
-            exit 1
-            ;;
-        *)
-            #unknown option
-            echo "Unknown option \"$1\", valid options are:"
-            echo -e "\tEnvironment: -e | --env | --environment followed by target"
-            echo -e "\tReset: -r | --reset"
-            exit 1
-            ;;
-    esac
-    shift
-done
-
-if [ $RESET ] || [ "$ENVIRONMENT" = "-r" ]; then
-    if [ $ENV_SET ]; then
-        #error
-        echo "ERROR: Cannot reset and specify an environment at the same time"
-        exit 1
-    else 
-        ENVIRONMENT="${GENERAL}"
-    fi
-fi
-
-if [ $NUM_ARG -eq 0 ]; then
-    echo "Currently active environment: "
-    cat "${VIMENV}/${ACTIVE}/${CURRENT}"
-    exit 0
-else 
-    if [ -z $ENVIRONMENT ]; then
-        ENVIRONMENT=${GENERAL}
-    fi
-fi
 
 function load_general(){
     # the shopt command makes sure that if the folder is empty the
@@ -194,6 +137,90 @@ function only_general(){
     echo "${GENERAL}" >> "${VIMENV}/${ACTIVE}/${CURRENT}"
     ln -s "${VIMENV}/${GENERAL}/${PLUGIN}" "${VIMENV}/${ACTIVE}/${PLUGIN}"
 }
+
+function create_environment(){
+    if [ -z "${ENVIRONMENT}" ]; then
+        echo "Error: you must supply a valid environment name!"
+        exit 1
+    fi
+    if [ ! -d "${VIMENV}/${ENVIRONMENT}" ]; then
+        mkdir -p "${VIMENV}/${ENVIRONMENT}/${PLUGIN}/${BUNDLE}"
+        touch "${VIMENV}/${ENVIRONMENT}/local.vim"
+        touch "${VIMENV}/${ENVIRONMENT}/local.bash"
+        echo "SUCCESS: created new environment \"${ENVIRONMENT}\""
+        echo "Use \"vimenv -e ${ENVIRONMENT}\" to activate this environment."
+    else 
+        echo "ERROR: environment \"${ENVIRONMENT}\" already exists"
+        exit 1
+    fi
+    exit 0
+}
+
+ACTIVE="active_environment"
+GENERAL="general"
+PLUGIN="plugin"
+BUNDLE="bundle"
+CURRENT="current.env"
+NUM_ARG="$#"
+
+while [[ $# > 0 ]]
+do
+    key="$1"
+
+    case $key in
+        -r|--reset)
+            RESET=true
+            ;;
+        --r|-reset)
+            echo "Valid reset options are: -r | --reset"
+            exit 1
+            ;;
+        -e|--env|--environment)
+            ENV_SET=true
+            ENVIRONMENT="$2"
+            shift
+            ;;
+        --e|-env|-environment)
+            echo "Valid environment options are -e | --env | --environment"
+            echo "followed by the target environment."
+            exit 1
+            ;;
+        -n|--new)
+            ENVIRONMENT="$2"
+            shift
+            create_environment $ENVIRONMENT
+            ;;
+        *)
+            #unknown option
+            echo "Unknown option \"$1\", valid options are:"
+            echo -e "\tEnvironment: -e | --env | --environment followed by target"
+            echo -e "\tReset: -r | --reset"
+            echo -e "\tNew: -n | --new"
+            exit 1
+            ;;
+    esac
+    shift
+done
+
+if [ $RESET ] || [ "$ENVIRONMENT" = "-r" ]; then
+    if [ $ENV_SET ]; then
+        #error
+        echo "ERROR: Cannot reset and specify an environment at the same time"
+        exit 1
+    else 
+        ENVIRONMENT="${GENERAL}"
+    fi
+fi
+
+if [ $NUM_ARG -eq 0 ]; then
+    echo "Currently active environment: "
+    cat "${VIMENV}/${ACTIVE}/${CURRENT}"
+    exit 0
+else 
+    if [ -z $ENVIRONMENT ]; then
+        ENVIRONMENT=${GENERAL}
+    fi
+fi
 
 if [ "${ENVIRONMENT}" == "${GENERAL}" ]; then
     clean_active
