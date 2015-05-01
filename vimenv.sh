@@ -109,6 +109,8 @@ function load_environment(){
         mkdir -p "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}" 
     fi
     load_general
+    echo "Resourcing .bash_profile"
+    resource
     echo -e "${LIGHT_GREEN}Loading environments [completed]${NC}"
 }
 
@@ -134,8 +136,12 @@ function clean_active(){
 }
 
 function only_general(){
+    echo "Loading environment: $ENVIRONMENT"
     echo "${GENERAL}" >> "${VIMENV}/${ACTIVE}/${CURRENT}"
     ln -s "${VIMENV}/${GENERAL}/${PLUGIN}" "${VIMENV}/${ACTIVE}/${PLUGIN}"
+    echo "Resourcing .bash_profile"
+    resource
+    echo -e "${LIGHT_GREEN}Loading general environment [completed]${NC}"
 }
 
 function create_environment(){
