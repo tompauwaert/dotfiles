@@ -13,7 +13,7 @@ let &runtimepath .= ',' . expand(vimDir . '/bundle/Vundle.vim')
 call vundle#rc(expand(vimDir . '/bundle'))
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim' 
+"Plugin 'gmarik/Vundle.vim' 
 Plugin 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/ScrollColors'
@@ -51,9 +51,7 @@ set incsearch " Search while you enter the query, not after
 set undolevels=1000 " More undos
 set title " Vim can set the title of the terminal window
 set noerrorbells " Or just turn error bells off with this
- set pastetoggle=<F3> " Toggle paste mode with F2
-" "Use ; instead of : to enter commands, saves a lot of keystrokes in the long run
-"nnoremap ; :
+set pastetoggle=<F3> " Toggle paste mode with F3
 set timeoutlen=750 " Set the timeout len for commands to be shorter.
 set number
 
@@ -83,20 +81,20 @@ set wildmode=list:longest,full
 " 
 " " Keep context around cursor. Start scrolling when the cursor is 3 lines away
 " " from the bottom/top of viewport.
-set scrolloff=6
+set scrolloff=9
 " 
 " " Set the backup and temp files in a central folders.
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,/~.tmp,~/tmp,/var/tmp,/tmp 
 
 " Scroll the viewport faster, 3 lines instead of 1 line 
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y> 
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y> 
 
 " set ruler 
 
 " Temporarily turn of search term higlighting
-nmap <silent> <leader>h :silent :nohlsearch<CR> 
+nmap <silent> <F4> :silent :nohlsearch<CR> 
 
 " Make saving easier
 nnoremap <leader>w :w<cr>
@@ -115,7 +113,6 @@ map <C-c> :%y+<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Snipmate Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" REENABLE TILL >
 
 let g:sparkupNextMapping = '<c-f>'
 
@@ -143,7 +140,6 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeDirArrows=0
-let NERDTreeIgnore = ['\.py[oc]$']
 let NERDTreeShowHidden=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -166,16 +162,15 @@ nnoremap <C-F9> :colorscheme solarized<cr>
 highlight ErrorMsg guibg=White
 highlight MatchParen guibg=White guifg=Red gui=bold
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Project specific VIM settings
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" Highlight lines longer than 80 characters in width
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%81v.\+/
 
-"function! ConditionalLoad()
-    "let cwd = getcwd()
-    "if getcwd() =~ $HOME . "/src/mobile"
-        "so $HOME/.vim.mobile
-    "endif
-"endfunction
-"autocmd VimEnter * call ConditionalLoad()
-
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimenv
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let $LOCALFILE=expand("~/dotfiles/vimenv/active_environment/local.vim")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
 
