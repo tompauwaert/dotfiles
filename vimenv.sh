@@ -186,6 +186,11 @@ function list_options {
     echo -e "\tNew: -n | --new"
     echo -e "\tList: -l | --list"
 }
+
+function edit_local {
+    vim "${VIMENV}/${ACTIVE}/local.vim"
+}
+
 ACTIVE="active_environment"
 GENERAL="general"
 PLUGIN="plugin"
@@ -222,6 +227,10 @@ do
             ;;
         -l|--list)
             list
+            exit 0
+            ;;
+        local.vim)
+            edit_local
             exit 0
             ;;
         *)
