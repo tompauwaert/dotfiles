@@ -144,7 +144,7 @@ function only_general(){
     echo -e "${LIGHT_GREEN}Loading general environment [completed]${NC}"
 }
 
-function create_environment(){
+function new_environment(){
     if [ -z "${ENVIRONMENT}" ]; then
         echo "Error: you must supply a valid environment name!"
         exit 1
@@ -194,7 +194,7 @@ do
         -n|--new)
             ENVIRONMENT="$2"
             shift
-            create_environment $ENVIRONMENT
+            new_environment $ENVIRONMENT
             ;;
         *)
             #unknown option
