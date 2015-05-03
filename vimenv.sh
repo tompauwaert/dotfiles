@@ -24,6 +24,7 @@
 # specified name. This will only create a scaffolding for a new environment.
 # The actual details will then have to be filled in by the user.
 # - 'vimenv -l' will list the available environments.
+# - 'vimenv local.vim' will edit the active local.vim file.
 # 
 # -----------------------------------------------------------------
 # | How the script works:
@@ -185,6 +186,7 @@ function list_options {
     echo -e "\tReset: -r | --reset"
     echo -e "\tNew: -n | --new"
     echo -e "\tList: -l | --list"
+    echo -e "\tEdit the active local.vim file: local.vim"
 }
 
 function edit_local {
