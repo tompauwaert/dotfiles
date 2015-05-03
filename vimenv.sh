@@ -23,6 +23,7 @@
 # - 'vimenv -n $environment_name' will create a new environment with the
 # specified name. This will only create a scaffolding for a new environment.
 # The actual details will then have to be filled in by the user.
+# - 'vimenv -l' will list the available environments.
 # 
 # -----------------------------------------------------------------
 # | How the script works:
@@ -109,8 +110,6 @@ function load_environment(){
         mkdir -p "${VIMENV}/${ACTIVE}/${PLUGIN}/${BUNDLE}" 
     fi
     load_general
-    echo "Resourcing .bash_profile"
-    resource
     echo -e "${LIGHT_GREEN}Loading environments [completed]${NC}"
 }
 
@@ -139,8 +138,6 @@ function only_general(){
     echo "Loading environment: $ENVIRONMENT"
     echo "${GENERAL}" >> "${VIMENV}/${ACTIVE}/${CURRENT}"
     ln -s "${VIMENV}/${GENERAL}/${PLUGIN}" "${VIMENV}/${ACTIVE}/${PLUGIN}"
-    echo "Resourcing .bash_profile"
-    resource
     echo -e "${LIGHT_GREEN}Loading general environment [completed]${NC}"
 }
 
@@ -162,6 +159,33 @@ function new_environment(){
     exit 0
 }
 
+function list(){
+    echo "Existing environments: "
+    current=$(cat "${VIMENV}/${ACTIVE}/${CURRENT}")
+    for dir in ${VIMENV}/*/; 
+    do
+        dir=$(basename "${dir}")
+        if [ ! "$dir" == "active_environment" ]; then
+            if [ "$dir" == "${current}" ]; then
+                echo -e "\t- ${dir} [active]"
+            else
+                echo -e "\t- ${dir}"
+            fi
+        fi
+    done
+}
+
+function list_options {
+    if [ -z "${1}" ]; then
+        echo "Use vimenv with one of the following parameters:"
+    else
+        echo "Unknown option \"$1\", valid options are:"
+    fi
+    echo -e "\tEnvironment: -e | --env | --environment followed by target"
+    echo -e "\tReset: -r | --reset"
+    echo -e "\tNew: -n | --new"
+    echo -e "\tList: -l | --list"
+}
 ACTIVE="active_environment"
 GENERAL="general"
 PLUGIN="plugin"
@@ -196,12 +220,13 @@ do
             shift
             new_environment $ENVIRONMENT
             ;;
+        -l|--list)
+            list
+            exit 0
+            ;;
         *)
             #unknown option
-            echo "Unknown option \"$1\", valid options are:"
-            echo -e "\tEnvironment: -e | --env | --environment followed by target"
-            echo -e "\tReset: -r | --reset"
-            echo -e "\tNew: -n | --new"
+            list_options $1
             exit 1
             ;;
     esac
@@ -219,8 +244,7 @@ if [ $RESET ] || [ "$ENVIRONMENT" = "-r" ]; then
 fi
 
 if [ $NUM_ARG -eq 0 ]; then
-    echo "Currently active environment: "
-    cat "${VIMENV}/${ACTIVE}/${CURRENT}"
+    list_options
     exit 0
 else 
     if [ -z $ENVIRONMENT ]; then
