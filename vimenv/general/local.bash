@@ -28,6 +28,9 @@ yellow='\033[1;33m'
 white='\033[1;37m'
 NC='\033[0m' #no color
 
+## Variables
+DIR=~/work
+
 ## Shortcuts
 alias ll='ls -al'
 alias editgit='vim ~/.gitconfig<CR>'
@@ -41,9 +44,9 @@ alias tl2='tree -L 2 -C'
 alias tl3='tree -L 3 -C'
 alias tl4='tree -L 4 -C'
 alias vimenv='~/dotfiles/vimenv.sh'
+alias ast='${DIR}/dev/tools/android-studio/bin/studio.sh'
 
 ## Switch repos
-DIR=~/work
 alias h='cd ~/'
 alias w='cd ${DIR}'
 alias bs='cd ${DIR}/bootstrap'
