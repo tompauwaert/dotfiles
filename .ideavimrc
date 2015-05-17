@@ -1,0 +1,17 @@
+
+"Vim configuration for Android Studio.
+"
+
+set hlsearch
+set showmode
+set scrolloff=6
+set timeoutlen=750
+set relativenumber
+
+
+set undolevels=1000
+set noerrorbells
+set smartcase
+
+nmap <F4> :nohlsearch<cr>
+inoremap kj <ESC>
