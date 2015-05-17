@@ -41,7 +41,22 @@ Thumbs.db
 validation-report.json
 validation-status.json
 
+# VIMENV
+vimenv/active_environment/
+vimenv/general/plugin/*
+!vimenv/general/plugin/bundle
+vimenv/general/plugin/bundle/*
+!vimenv/general/plugin/bundle/Vundle.vim
+vimenv/general_test
+vimenv/test_dir
+
+
 # Folders to ignore
 bower_components
 node_modules
-bundle
+
+# Odoo files to ignore:
+.mailmap
+addons/web/.bowerrc
+addons/web/static/lib/py.js/.hg_archival.txt
+doc/_static/.placeholder
