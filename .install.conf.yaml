@@ -7,6 +7,7 @@
     ~/.bash_profile: vimenv/general/local.bash
 
 - shell:
+    - [source ~/.bash_profile]
     - [mkdir -p ~/work/dev, Create work/dev dir]
     - [mkdir -p vimenv/active_environment/plugin, Create active_environment dir]
     - [vimenv -e, Activating general environment]
@@ -15,6 +16,7 @@
     ~/.vim : vimenv/active_environment/plugin/
 
 - shell:
+    - [./vimenv.sh -r]
     - [vim +PluginInstall +qall, Installing general vim plugins]
 
 
