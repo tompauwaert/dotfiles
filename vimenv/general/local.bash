@@ -234,3 +234,5 @@ export TERM=screen-256color-bce
 ## alias js='jekyll serve --watch'
 ## alias ps='python -m SimpleHTTPServer 4000'
 ## alias gtest='testrb test/integration/bundle_test.rb'
+
+[ -r ~/.bashrc ] && source ~/.bashrc
