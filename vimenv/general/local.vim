@@ -3,6 +3,8 @@
 " Usage: Web development / HTML / Javascript / CSS / Python
 " 
 "
+"
+let g:pymode_python='python3'
 set nocompatible
 filetype off
 
@@ -24,11 +26,18 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Plugin 'tmhedberg/matchit'
 Plugin 'godlygeek/tabular'
-"Plugin 'kien/ctrlp.vim'
 "Bundle 'rstacruz/sparkup'
-"Bundle 'tpope/vim-fugitive'  
-"Plugin 'scrooloose/syntastic'
 "Bundle 'Shougo/neocomplete.vim'
+"
+" python plugins
+Plugin 'kien/ctrlp.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'nvie/vim-flake8'
+Bundle 'tpope/vim-fugitive'  
+Plugin 'jmcantrell/vim-virtualenv'
 
 
 call vundle#end()
@@ -55,6 +64,8 @@ set pastetoggle=<F3> " Toggle paste mode with F3
 set timeoutlen=750 " Set the timeout len for commands to be shorter.
 set number
 
+set clipboard=unnamed
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remapping keys.
@@ -66,6 +77,47 @@ inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
+noremap <F4> :nohls<
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=indent
+set foldlevel=99
+" enable folding with spacebar
+nnoremap <space> za
+
+"Flag unnecessary whitespace
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*pyw,*.c,*.h match BadWhitespace /\s\+$/
+set encoding=utf-8
+
+" Close auto complete window when we're done with it, and also give a shortcut
+" for it.
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Make sure that vim, and YouCompleteMe is aware of the virtual environment so
+" it can find the packages for autocompletion at the right place.
+"python3 << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+    "project_base_dir = os.environ['VIRTUAL_ENV']
+    "activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    "execfile(activate_this, dict(__file__=activate_this))
+"EOF
+
+"Make code look pretty
+let python_highlight_all=1
+syntax on
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in nerdtree
  
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
