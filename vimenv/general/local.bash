@@ -45,6 +45,7 @@ alias tl3='tree -L 3 -C'
 alias tl4='tree -L 4 -C'
 alias vimenv='~/dotfiles/vimenv.sh'
 alias ast='${DIR}/dev/tools/android-studio/bin/studio.sh'
+alias rs='gtk-redshift&'
 
 ## Switch repos
 alias h='cd ~/'
@@ -96,6 +97,7 @@ createHackFolder(){
 }
 alias challenge=createHackFolder
 alias up2='cd ../..'
+alias up='cd ..'
 
 ## Pull all repositories changes.
 pullAll(){
@@ -205,7 +207,7 @@ alias ghp='git co gh-pages'
 ## FORCE PROMPT COLORS
 force_color_prompt=yes
 #export TERM=xterm-color
-export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
+#export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export LS_OPTS='--color=auto'

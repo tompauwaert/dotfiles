@@ -5,18 +5,18 @@
     ~/.gitignore: .gitignore
     ~/.gitconfig: .gitconfig
     ~/.bash_profile: vimenv/general/local.bash
+    ~/.ideavimrc : .ideavimrc
 
 - shell:
     - [source ~/.bash_profile]
     - [mkdir -p ~/work/dev, Create work/dev dir]
     - [mkdir -p vimenv/active_environment/plugin, Create active_environment dir]
-    - [vimenv -e, Activating general environment]
+    - [./vimenv.sh -e, Activating general environment]
 
 - link: 
     ~/.vim : vimenv/active_environment/plugin/
 
 - shell:
-    - [./vimenv.sh -r]
     - [vim +PluginInstall +qall, Installing general vim plugins]
 
 
