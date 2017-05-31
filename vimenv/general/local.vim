@@ -102,23 +102,14 @@ set encoding=utf-8
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-" Make sure that vim, and YouCompleteMe is aware of the virtual environment so
-" it can find the packages for autocompletion at the right place.
-"python3 << EOF
-"import os
-"import sys
-"if 'VIRTUAL_ENV' in os.environ:
-    "project_base_dir = os.environ['VIRTUAL_ENV']
-    "activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    "execfile(activate_this, dict(__file__=activate_this))
-"EOF
+let g:ycm_python_bindary_path = 'python' 
 
 "Make code look pretty
 let python_highlight_all=1
 syntax on
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in nerdtree
- 
+
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Macro's etc.
