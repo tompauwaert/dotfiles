@@ -5,7 +5,7 @@
     ~/.gitignore: .gitignore
     ~/.gitconfig: .gitconfig
     ~/.bash_profile: vimenv/general/local.bash
-    ~/.ideavimrc : .ideavimrc
+    ~/.ideavimrc: .ideavimrc
 
 - shell:
     - [source ~/.bash_profile]
