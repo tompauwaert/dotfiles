@@ -52,10 +52,10 @@ alias h='cd ~/'
 alias w='cd ${DIR}'
 alias bs='cd ${DIR}/bootstrap'
 alias dev='cd ${DIR}/dev'
-alias odev='cd ${DIR}/dev/odoo-dev'
 alias dot='cd ~/dotfiles'
 alias hr='cd ${DIR}/dev/hackerrank'
 alias oop='cd ${DIR}/dev/one-off-projects' 
+alias aw='cd ${DIR}/dev/alexandria.works'
 
 ## HackerRank commands - making life easier
 DEFAULT_HACKER_LANGUAGE=python
