@@ -46,6 +46,7 @@ alias tl4='tree -L 4 -C'
 alias vimenv='~/dotfiles/vimenv.sh'
 alias ast='${DIR}/dev/tools/android-studio/bin/studio.sh'
 alias rs='gtk-redshift&'
+#alias pyenv='source ~/work/dev/alexandria.works/query_service/dev-env/bin/activate'
 
 ## Switch repos
 alias h='cd ~/'
@@ -178,6 +179,10 @@ pushAll(){
     cd "$currentPath"
 }
 alias 'push-all'=pushAll
+
+# Virtual environment function
+pyenv="~/.pyenv"
+activate='bin/activate'
 
 ## Git commands
 alias log='git log'

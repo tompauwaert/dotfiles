@@ -38,7 +38,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'nvie/vim-flake8'
 Bundle 'tpope/vim-fugitive'  
 Plugin 'jmcantrell/vim-virtualenv'
-
+Plugin 'integralist/vim-mypy'
+Plugin 'tpope/vim-surround'
+Plugin 'maksimr/vim-jsbeautify'
 
 call vundle#end()
 filetype plugin indent on
@@ -61,10 +63,14 @@ set undolevels=1000 " More undos
 set title " Vim can set the title of the terminal window
 set noerrorbells " Or just turn error bells off with this
 set pastetoggle=<F3> " Toggle paste mode with F3
-set timeoutlen=750 " Set the timeout len for commands to be shorter.
+set timeoutlen=500 " Set the timeout len for commands to be shorter.
 set number
+set textwidth=90
+set formatoptions=cqwjr
 
 set clipboard=unnamed
+set noswapfile
+set smartindent
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,6 +115,8 @@ let python_highlight_all=1
 syntax on
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in nerdtree
+
+set wildignore+=*/dev-env/*
 
  
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
