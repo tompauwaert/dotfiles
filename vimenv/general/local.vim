@@ -70,7 +70,6 @@ set formatoptions=cqwjr
 
 set clipboard=unnamed
 set noswapfile
-set smartindent
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
