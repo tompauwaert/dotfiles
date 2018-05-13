@@ -184,6 +184,10 @@ alias 'push-all'=pushAll
 pyenv="~/.pyenv"
 activate='bin/activate'
 
+# Add go to the path
+export PATH=$PATH:/usr/lib/go-1.10/bin
+
+
 ## Git commands
 alias log='git log'
 alias diff='git diff'
